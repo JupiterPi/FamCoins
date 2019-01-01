@@ -1,4 +1,4 @@
-package jupiterpi.famcoins;
+package famcoins;
 
 // import jupiterpi.textserver.filetool.FileTool;
 
@@ -8,10 +8,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@RequestMapping(path = "")
+import org.springframework.beans.factory.annotation.Autowired;
+
+@RequestMapping(path = "/api")
 @RestController
 public class Controller
 {
+    @Autowired AccountService accountService;
+
     /* @GetMapping("")
     public String getText () throws FileNotFoundException, IOException
     {
@@ -29,4 +33,36 @@ public class Controller
 
         return returnString;
     } */
+
+    @GetMapping("/amount/{owner}/{unit}")
+    public String getAmount (@PathVariable String owner, @PathVariable String unit)
+    {
+        return Integer.toString(accountService.getAmount(owner, unit));
+    }
+
+    @PostMapping("/account")
+    public void createAccount (@RequestBody Account account) throws Exception
+    {
+        String owner = account.getOwner();
+        String unit = account.getUnit();
+        accountService.createAccount(owner, unit);
+    }
+
+    @PostMapping("/add/{owner}/{unit}/{amount}")
+    public void add (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount)
+    {
+        accountService.add(owner, unit, amount);
+    }
+
+    @PostMapping("/remove/{owner}/{unit}/{amount}")
+    public void remove (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount)
+    {
+        accountService.remove(owner, unit, amount);
+    }
+
+    @PostMapping("/transfer/{from}/{to}/{unit}/{amount}")
+    public void transfer (@PathVariable String from, @PathVariable String to, @PathVariable String unit, @PathVariable int amount)
+    {
+        accountService.transfer(from, to, unit, amount);
+    }
 }

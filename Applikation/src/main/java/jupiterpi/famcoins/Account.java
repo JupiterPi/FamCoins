@@ -1,4 +1,4 @@
-package jupiterpi.famcoins;
+package famcoins;
 
 public class Account
 {
@@ -11,5 +11,25 @@ public class Account
         this.owner = owner;
         this.amount = 0;
         this.unit = unit;
+    }
+
+    public String getOwner ()
+    {
+        return this.owner;
+    }
+
+    public int getAmount ()
+    {
+        return this.amount;
+    }
+    
+    public void setAmount (int amount)
+    {
+        this.amount = amount;
+    }
+
+    public String getUnit ()
+    {
+        return this.unit;
     }
 }
