@@ -65,4 +65,10 @@ public class Controller
     {
         accountService.transfer(from, to, unit, amount);
     }
+
+    @GetMapping("/error")
+    public String error ()
+    {
+        return "Ssssorry, es ist ein Fehler aufgetreten...";
+    }
 }
