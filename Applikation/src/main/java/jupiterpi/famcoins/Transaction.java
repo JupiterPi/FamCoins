@@ -1,4 +1,4 @@
-package famcoins;
+package jupiterpi.famcoins;
 
 public class Transaction
 {

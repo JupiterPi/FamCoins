@@ -29,6 +29,7 @@ input[type="text"], input[type="number"]
     border-radius: 3px;
     width: 180px;
     padding-left: 6px;
+    margin: 1px;
 }
 
 input[type="number"]
@@ -36,12 +37,13 @@ input[type="number"]
     width: 50px;
 }
 
-button, input[type="button"]
+button, input[type="button"], select
 {
     background-color: #F2E0AA;
     border: none;
     padding: 3.5px;
-    border-radius: 3px;
     padding-left: 6px;
     padding-right: 6px;
+    border-radius: 3px;
+    margin: 1px;
 }

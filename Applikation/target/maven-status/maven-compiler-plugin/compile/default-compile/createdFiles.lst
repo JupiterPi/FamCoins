@@ -1,6 +1,6 @@
-famcoins\Account.class
-famcoins\Application.class
-famcoins\Controller.class
-famcoins\AccountService.class
-famcoins\Transaction.class
+jupiterpi\famcoins\Application.class
+jupiterpi\famcoins\Account.class
+jupiterpi\famcoins\AccountService.class
+jupiterpi\famcoins\Transaction.class
+jupiterpi\famcoins\Controller.class
 jupiterpi\famcoins\FileTool.class

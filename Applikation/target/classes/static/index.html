@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="famcoins">
+    <head>
+        <title>FamCoins</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body ng-controller="controller">
+        <h1>FamCoins</h1>
+        <div>
+            <form>
+                <table>
+                    <tr>
+                        <td>Inhaber:</td>
+                        <td><input type="text" ng-model="owner"></td>
+                    </tr>
+                    <tr>
+                        <td>Währung:</td>
+                        <td><input type="text" ng-model="unit"></td>
+                    </tr>
+                </table>
+                <button ng-click="readAmount()">Anmelden</button>
+            </form>
+        </div>
+        <div>
+            Aktueller Kontostand: <span>{{amount}}</span>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Aktion: </td>
+                    <td><select ng-model="selectedAction">
+                        <option>Hinzufügen</option>
+                        <option>Abziehen</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Betrag: </td>
+                    <td><input type="number" ng-model="transact1Amount"></td>
+                </tr>
+            </table>
+            <button ng-click="flexibleAction()">{{selectedAction}}</button>
+        </div>
+    </body>
+</html>

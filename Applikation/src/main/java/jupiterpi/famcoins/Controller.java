@@ -1,4 +1,4 @@
-package famcoins;
+package jupiterpi.famcoins;
 
 // import jupiterpi.textserver.filetool.FileTool;
 

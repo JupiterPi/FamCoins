@@ -22,17 +22,27 @@
                         <td><input type="text" ng-model="unit"></td>
                     </tr>
                 </table>
-                <button ng-click="login()">Anmelden</button>
+                <button ng-click="readAmount()">Anmelden</button>
             </form>
         </div>
         <div>
             Aktueller Kontostand: <span>{{amount}}</span>
         </div>
         <div>
-            <form>
-                <label>Betrag: </label><input type="number" ng-model="removeValue">
-                <button ng-click="remove()">Abziehen</button>
-            </form>
+            <table>
+                <tr>
+                    <td>Aktion: </td>
+                    <td><select ng-model="selectedAction">
+                        <option>Hinzufügen</option>
+                        <option>Abziehen</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Betrag: </td>
+                    <td><input type="number" ng-model="transact1Amount"></td>
+                </tr>
+            </table>
+            <button ng-click="flexibleAction()">{{selectedAction}}</button>
         </div>
     </body>
 </html>
