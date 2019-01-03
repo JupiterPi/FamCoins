@@ -2,7 +2,6 @@ package jupiterpi.famcoins;
 
 import java.util.*;
 import java.io.*;
-import javax.swing.*;
 
 public class FileTool
 {
@@ -68,7 +67,6 @@ public class FileTool
 	
 	public void saveFile () throws IOException
 	{
-		String input;
 		BufferedWriter Writer = new BufferedWriter (new FileWriter (fileName));
 		for (int i = 0; i < file.size(); i++)
 		{

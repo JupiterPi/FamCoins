@@ -4,10 +4,6 @@ package jupiterpi.famcoins;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RequestMapping(path = "/api")
