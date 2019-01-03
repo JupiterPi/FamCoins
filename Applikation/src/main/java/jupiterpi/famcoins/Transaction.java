@@ -34,4 +34,9 @@ public class Transaction
     {
         return this.unit;
     }
+
+    public String toString ()
+    {
+        return action + ";" + owner + ";" + amount + ";" + unit;
+    }
 }

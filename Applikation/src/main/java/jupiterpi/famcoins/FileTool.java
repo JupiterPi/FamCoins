@@ -6,7 +6,7 @@ import java.io.*;
 public class FileTool
 {
 	private String fileName;
-	protected ArrayList<String> file = new ArrayList<String>();
+	protected List<String> file = new ArrayList<String>();
 	
 	public FileTool (String fileName) throws FileNotFoundException, IOException
 	{
@@ -23,7 +23,7 @@ public class FileTool
 		Reader.close();
 	}
 	
-	public ArrayList<String> getFile ()
+	public List<String> getFile ()
 	{
 		return file;
 	}
