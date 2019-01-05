@@ -21,6 +21,12 @@ div
     border-radius: 10px;
 }
 
+div.error
+{
+    background-color: #E3836D;
+    background-image: url(error-div.png);
+}
+
 input[type="text"], input[type="number"]
 {
     background-color: #F2E0AA;

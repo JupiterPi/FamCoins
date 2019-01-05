@@ -45,19 +45,19 @@ public class Controller
     }
 
     @PostMapping("/add/{owner}/{unit}/{amount}")
-    public void add (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount)
+    public void add (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount) throws Exception
     {
         accountService.add(owner, unit, amount);
     }
 
     @PostMapping("/remove/{owner}/{unit}/{amount}")
-    public void remove (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount)
+    public void remove (@PathVariable String owner, @PathVariable String unit, @PathVariable int amount) throws Exception
     {
         accountService.remove(owner, unit, amount);
     }
 
     @PostMapping("/transfer/{from}/{to}/{unit}/{amount}")
-    public void transfer (@PathVariable String from, @PathVariable String to, @PathVariable String unit, @PathVariable int amount)
+    public void transfer (@PathVariable String from, @PathVariable String to, @PathVariable String unit, @PathVariable int amount) throws Exception
     {
         accountService.transfer(from, to, unit, amount);
     }

@@ -6,6 +6,8 @@ public class Account
     private int amount;
     private String unit;
 
+    public Account () {}
+
     public Account (String owner, String unit)
     {
         this.owner = owner;
@@ -27,19 +29,29 @@ public class Account
         unit = line[2];
     }
 
+    public void setOwner (String owner)
+    {
+        this.owner = owner;
+    }
+
     public String getOwner ()
     {
         return this.owner;
+    }
+    
+    public void setAmount (int amount)
+    {
+        this.amount = amount;
     }
 
     public int getAmount ()
     {
         return this.amount;
     }
-    
-    public void setAmount (int amount)
+
+    public void serUnit (String unit)
     {
-        this.amount = amount;
+        this.unit = unit;
     }
 
     public String getUnit ()

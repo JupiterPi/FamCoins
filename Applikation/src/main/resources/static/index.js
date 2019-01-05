@@ -45,4 +45,21 @@ app.controller("controller", function ($scope, $http) {
         }
         else alert("Fehler!");
     };
+
+    $scope.newOwner = "Jonathan";
+    $scope.newUnit = "Sachgeschichtengutschein";
+    $scope.createAccount = function () {
+        $http.post ("/api/account", {
+            "owner" : $scope.newOwner, 
+            "unit" : $scope.newUnit
+        }).then (function success (response) {
+            console.log ("Account erstellt.");
+            $scope.owner = $scope.newOwner;
+            $scope.unit = $scope.newUnit;
+            $scope.readAmount();
+        }, function error (response) {
+            console.log ("Account konnte nicht erstellt werden. ");
+            console.log (response.error);
+        });
+    };
 });

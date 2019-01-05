@@ -17,9 +17,13 @@ public class AccountService
     private Map<String,Account> accounts = new HashMap<String,Account>();
     private List<Transaction> transactions = new ArrayList<Transaction>();
 
-    private final String accountsFileName = "accounts.txt";
-    private final String transactionsFileName = "transactions.txt";
+    private final String accountsFileName = ".\\accounts.txt";
+    private final String transactionsFileName = ".\\transactions.txt";
 
+    public AccountService () throws FileNotFoundException, IOException
+    {
+        readAccounts();
+    }
 
     private String makeID (String owner, String unit)
     {
@@ -33,6 +37,7 @@ public class AccountService
         if (existing != null) throw new Exception("Account exists already");
         Account account = new Account(owner, unit);
         accounts.put(id, account);
+        writeAccounts();
     }
 
     private void transact(String owner, String unit, int amount, String action)
@@ -45,20 +50,26 @@ public class AccountService
         transactions.add(transaction);
     }
 
-    public void transfer (String from, String to, String unit, int amount)
+    public void transfer (String from, String to, String unit, int amount) throws FileNotFoundException, IOException
     {
         transact(from, unit, amount, "remove");
         transact(to, unit, amount, "add");
+        writeAccounts();
+        writeTransactions();
     }
 
-    public void add (String owner, String unit, int amount)
+    public void add (String owner, String unit, int amount) throws FileNotFoundException, IOException
     {
         transact (owner, unit, amount, "add");
+        writeAccounts();
+        writeTransactions();
     }
 
-    public void remove (String owner, String unit, int amount)
+    public void remove (String owner, String unit, int amount) throws FileNotFoundException, IOException
     {
         transact (owner, unit, amount, "remove");
+        writeAccounts();
+        writeTransactions();
     }
 
     public int getAmount (String owner, String unit)
@@ -77,8 +88,6 @@ public class AccountService
             for (int i = 0; i < accountsFile.getFile().size(); i++)
             {
                 String line = accountsFile.getLine(i);
-                /* Account acc = ???;
-                accounts.put(makeID(acc.getOwner(),acc.getUnit()),acc); */
                 Account account = new Account (line.split(";"));
                 accounts.put (makeID (account.getOwner(), account.getUnit()), account);
             }
@@ -90,20 +99,20 @@ public class AccountService
         }
     }
 
-    private void writeAccounts ()
+    private void writeAccounts () throws FileNotFoundException, IOException
     {
-        Account[] accountsArray = accounts.values().toArray();
+        Collection<Account> accountsArray = accounts.values();
         List<String> lines = new ArrayList<String>();
-        for (int i = 0; i < accounts.size(); i++)
+        for (Account a : accountsArray)
         {
-            lines.add (accountsArray[i].toString());
+            lines.add (a.toString());
         }
         FileTool accountsFile = new FileTool (accountsFileName);
         accountsFile.setFile (lines);
         accountsFile.saveFile();
     }
 
-    private void writeTransactions ()
+    private void writeTransactions () throws FileNotFoundException, IOException
     {
         List<String> lines = new ArrayList<String>();
         for (int i = 0; i < transactions.size(); i++)

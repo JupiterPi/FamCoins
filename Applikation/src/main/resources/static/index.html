@@ -44,5 +44,20 @@
             </table>
             <button ng-click="flexibleAction()">{{selectedAction}}</button>
         </div>
+        <div>
+            <form>
+                <table>
+                    <tr>
+                        <td><label>Inhaber: </label></td>
+                        <td><input type="text" ng-model="newOwner"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Währung: </label></td>
+                        <td><input type="text" ng-model="newUnit"></td>
+                    </tr>
+                </table>
+                <button ng-click="createAccount()">Konto einrichten</button>
+            </form>
+        </div>
     </body>
 </html>

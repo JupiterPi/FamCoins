@@ -45,7 +45,7 @@ public class FileTool
 		return returning;
 	}
 
-	public void setFile (ArrayList<String> newFile)
+	public void setFile (List<String> newFile)
 	{
 		this.file = newFile;
 	}
