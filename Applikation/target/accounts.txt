@@ -1,2 +1,2 @@
-Ines;-3;Sachgeschichtengutschein
-Jonathan;3;Sachgeschichtengutschein
+Ines;-30;Sachgeschichtengutschein
+Jonathan;30;Sachgeschichtengutschein

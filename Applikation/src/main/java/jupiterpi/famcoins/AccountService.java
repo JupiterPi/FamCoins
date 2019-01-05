@@ -23,6 +23,7 @@ public class AccountService
     public AccountService () throws FileNotFoundException, IOException
     {
         readAccounts();
+        readTransactions();
     }
 
     private String makeID (String owner, String unit)
@@ -110,6 +111,24 @@ public class AccountService
         FileTool accountsFile = new FileTool (accountsFileName);
         accountsFile.setFile (lines);
         accountsFile.saveFile();
+    }
+
+    private void readTransactions () throws FileNotFoundException, IOException
+    {
+        try
+        {
+            FileTool transactionsFile = new FileTool (transactionsFileName);
+            for (String line : transactionsFile.getFile())
+            {
+                Transaction transaction = new Transaction (line.split(";"));
+                transactions.add (transaction);
+            }
+            transactionsFile.saveFile();
+        }
+        catch (FileNotFoundException x)
+        {
+            System.out.println("[WARNING] Can't found transactions.txt. Created empty transactions list. ");
+        }
     }
 
     private void writeTransactions () throws FileNotFoundException, IOException

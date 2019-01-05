@@ -15,6 +15,14 @@ public class Transaction
         this.unit = unit;
     }
 
+    public Transaction (String[] line)
+    {
+        action = line[0];
+        owner = line[1];
+        amount = Integer.parseInt (line[2]);
+        unit = line[3];
+    }
+
     public String getAction ()
     {
         return this.action;
