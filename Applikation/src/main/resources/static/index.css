@@ -10,7 +10,7 @@ h1
     margin: 20px;
 }
 
-div
+div.visible, div.error
 {
     background-color: #E3C66D;
     margin: 7px;

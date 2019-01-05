@@ -10,7 +10,7 @@
     </head>
     <body ng-controller="controller">
         <h1>FamCoins</h1>
-        <div>
+        <div class="visible">
             <form>
                 <table>
                     <tr>
@@ -25,10 +25,10 @@
                 <button ng-click="readAmount()">Anmelden</button>
             </form>
         </div>
-        <div>
+        <div class="visible">
             Aktueller Kontostand: <span>{{amount}}</span>
         </div>
-        <div>
+        <div class="visible">
             <table>
                 <tr>
                     <td>Aktion: </td>
@@ -44,7 +44,7 @@
             </table>
             <button ng-click="flexibleAction()">{{selectedAction}}</button>
         </div>
-        <div>
+        <div class="visible">
             <form>
                 <table>
                     <tr>
@@ -57,6 +57,29 @@
                     </tr>
                 </table>
                 <button ng-click="createAccount()">Konto einrichten</button>
+            </form>
+        </div>
+        <div class="visible, error">
+            <form>
+                <table>
+                    <tr>
+                        <td>Von:</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Zu:</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Währung:</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Betrag:</td>
+                        <td><input type="number"></td>
+                    </tr>
+                </table>
+                <button>Überweisen</button>
             </form>
         </div>
     </body>

@@ -25,8 +25,8 @@ app.controller("controller", function ($scope, $http) {
         }
     };
 
-    $scope.owner = "Jonathan";
-    $scope.unit = "Sachgeschichtengutschein";
+    $scope.owner = "";
+    $scope.unit = "";
     $scope.amount = "---";
 
     $scope.selectedAction = "Bitte auswählen...";
@@ -46,8 +46,8 @@ app.controller("controller", function ($scope, $http) {
         else alert("Fehler!");
     };
 
-    $scope.newOwner = "Jonathan";
-    $scope.newUnit = "Sachgeschichtengutschein";
+    $scope.newOwner = "";
+    $scope.newUnit = "";
     $scope.createAccount = function () {
         $http.post ("/api/account", {
             "owner" : $scope.newOwner, 
