@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,6 +26,26 @@ public class AccountService
     {
         readAccounts();
         readTransactions();
+    }
+
+    public Set<String> getUnits ()
+    {
+        Set<String> units = new HashSet<String>();
+        for (Account account : accounts.values())
+        {
+            units.add (account.getUnit());
+        }
+        return units;
+    }
+
+    public Set<String> getOwners ()
+    {
+        Set<String> owners = new HashSet<String>();
+        for (Account account : accounts.values())
+        {
+            owners.add (account.getOwner());
+        }
+        return owners;
     }
 
     private String makeID (String owner, String unit)

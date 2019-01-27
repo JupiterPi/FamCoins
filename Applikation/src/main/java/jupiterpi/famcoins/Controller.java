@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.Set;
+
+
 @RequestMapping(path = "/api")
 @RestController
 public class Controller
@@ -66,5 +70,17 @@ public class Controller
     public String error ()
     {
         return "Ssssorry, es ist ein Fehler aufgetreten...";
+    }
+
+    @GetMapping("/units")
+    public Set<String> getUnits ()
+    {
+        return accountService.getUnits();
+    }
+
+    @GetMapping("/owners")
+    public Set<String> getOwners ()
+    {
+        return accountService.getOwners();
     }
 }
