@@ -1,4 +1,2 @@
-add;Jonathan;4;Sachgeschichtengutschein
-add;Ines;9;Sachgeschichtengutschein
-add;Jonathan;3;Sachgeschichtengutschein
-remove;Ines;5;Sachgeschichtengutschein
+remove;Ines;6;Sachgeschichtengutschein
+add;Jonathan;6;Sachgeschichtengutschein

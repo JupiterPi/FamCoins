@@ -59,27 +59,27 @@
                 <button ng-click="createAccount()">Konto einrichten</button>
             </form>
         </div>
-        <div class="visible, error">
+        <div class="visible">
             <form>
                 <table>
                     <tr>
                         <td>Von:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" ng-model="transferFrom"></td>
                     </tr>
                     <tr>
                         <td>Zu:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" ng-model="transferTo"></td>
                     </tr>
                     <tr>
                         <td>Währung:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" ng-model="transferUnit"></td>
                     </tr>
                     <tr>
                         <td>Betrag:</td>
-                        <td><input type="number"></td>
+                        <td><input type="number" ng-model="transferAmount"></td>
                     </tr>
                 </table>
-                <button>Überweisen</button>
+                <button ng-click="transfer()">Überweisen</button>
             </form>
         </div>
     </body>

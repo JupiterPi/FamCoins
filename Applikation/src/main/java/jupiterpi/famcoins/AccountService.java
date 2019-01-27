@@ -17,8 +17,8 @@ public class AccountService
     private Map<String,Account> accounts = new HashMap<String,Account>();
     private List<Transaction> transactions = new ArrayList<Transaction>();
 
-    private final String accountsFileName = "./accounts.txt";
-    private final String transactionsFileName = "./transactions.txt";
+    private final String accountsFileName = ".\\accounts.txt";
+    private final String transactionsFileName = ".\\transactions.txt";
 
     public AccountService () throws FileNotFoundException, IOException
     {

@@ -25,6 +25,18 @@ app.controller("controller", function ($scope, $http) {
         }
     };
 
+    $scope.transact2 = function (from, to, amount, unit) {
+        if (from != "" && to != "" && unit != "" && amount > 0)
+        {
+            $http.post("api/transfer/" + from + "/" + to + "/" + unit + "/" + amount)
+                .then(function success (response) {
+                    $scope.readAmount();
+                }, function error (response) {
+                    console.log(response.error);
+                });
+        }
+    };
+
     $scope.owner = "";
     $scope.unit = "";
     $scope.amount = "---";
@@ -61,5 +73,14 @@ app.controller("controller", function ($scope, $http) {
             console.log ("Account konnte nicht erstellt werden. ");
             console.log (response.error);
         });
+    };
+
+    $scope.transferFrom = "";
+    $scope.transferTo = "";
+    $scope.transferUnit = "";
+    $scope.transferAmount = "";
+    $scope.transfer = function() {
+        console.log ("hit transfer");
+        $scope.transact2 ($scope.transferFrom, $scope.transferTo, $scope.transferAmount, $scope.transferUnit);
     };
 });
